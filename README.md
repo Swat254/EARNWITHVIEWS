@@ -1,147 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarnWithViews - Investment Platform</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>User Dashboard</title>
     <style>
-        /* Add your styles here */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
+
+        #auth, #dashboard {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
             text-align: center;
         }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
+
+        input[type="text"], input[type="password"], input[type="file"], textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-        main {
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
+
         button {
-            background-color: #333;
-            color: #fff;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
             border: none;
-            padding: 10px 20px;
+            border-radius: 4px;
             cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
         }
+
         button:hover {
-            background-color: #555;
+            background-color: #0056b3;
         }
-        .whatsapp-btn {
+
+        img#profilePic {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        #referralLink {
+            background-color: #e9ecef;
+            padding: 8px;
+            border-radius: 4px;
             display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #25D366; /* WhatsApp Green */
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
+            margin-bottom: 20px;
         }
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #333;
-            color: #fff;
-        }
+
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginButton').addEventListener('click', function() {
+                alert("Login functionality needs backend implementation.");
+            });
+
+            document.getElementById('registerButton').addEventListener('click', function() {
+                alert("Register functionality needs backend implementation.");
+                showDashboard();
+            });
+
+            document.getElementById('logoutButton').addEventListener('click', function() {
+                document.getElementById('auth').style.display = 'block';
+                document.getElementById('dashboard').style.display = 'none';
+            });
+
+            document.getElementById('shareButton').addEventListener('click', function() {
+                alert("Share functionality needs backend implementation or sharing API.");
+            });
+
+            document.getElementById('profilePicUpload').addEventListener('change', function() {
+                alert("Profile picture upload needs backend implementation.");
+            });
+        });
+
+        function showDashboard() {
+            document.getElementById('auth').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            document.getElementById('profilePic').src = "placeholder.jpg";
+            document.getElementById('referralLink').textContent = "yourreferral.com/user123";
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to EarnWithViews</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#signup">Sign Up</a></li>
-                <li><a href="#login">Login</a></li>
-                <li><a href="#payment">Make a Payment</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home">
-            <h2>Invest with EarnWithViews</h2>
-            <p>Start investing your money and earn daily rewards with EarnWithViews!</p>
-        </section>
-
-        <section id="about">
-            <h2>About EarnWithViews</h2>
-            <p>EarnWithViews provides a platform where users can securely invest their money and earn daily profits.</p>
-        </section>
-
-        <section id="signup">
-            <h2>Create an Account</h2>
-            <form action="register.php" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br>
-                <button type="submit">Sign Up</button>
-            </form>
-        </section>
-
-        <section id="login">
-            <h2>Login</h2>
-            <form action="login.php" method="post">
-                <label for="login-username">Username:</label>
-                <input type="text" id="login-username" name="username" required><br>
-                <label for="login-password">Password:</label>
-                <input type="password" id="login-password" name="password" required><br>
-                <button type="submit">Login</button>
-            </form>
-        </section>
-
-        <section id="payment">
-            <h2>Make a Payment with M-Pesa</h2>
-            <form action="mpesa_payment.php" method="post">
-                <label for="phone">M-Pesa Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="Enter your phone number"><br>
-                <label for="amount">Amount to Invest (in KES):</label>
-                <input type="number" id="amount" name="amount" required><br>
-                <button type="submit">Pay with M-Pesa</button>
-            </form>
-        </section>
-        
-        <!-- WhatsApp Contact Button -->
-        <section>
-            <h2>Contact Us</h2>
-            <a href="https://wa.me/0700698204" class="whatsapp-btn" target="_blank">Contact Us on WhatsApp</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 EarnWithViews. All rights reserved.</p>
-        <p>Follow us on social media:</p>
-        <a href="https://x.com/marcustaxlord?t=YNTi98tG3YAYiTYNHLpbEA&s=09" target="_blank">Twitter</a>
-    </footer>
+    <div id="auth">
+        <h1>Login / Register</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginButton">Login</button>
+        <button id="registerButton">Register</button>
+    </div>
+    <div id="dashboard" style="display: none;">
+        <h1>User Dashboard</h1>
+        <img id="profilePic" src="" alt="Profile Picture">
+        <input type="file" id="profilePicUpload">
+        <p>Referral Link: <span id="referralLink"></span></p>
+        <textarea id="shareText"></textarea>
+        <button id="shareButton">Share</button>
+        <button id="logoutButton">Logout</button>
+    </div>
 </body>
 </html>
